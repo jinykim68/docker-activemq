@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  activemq:
+    container_name: activemq_local
+    image: jinyoungk/activemq:5.17.1
+    restart: always
+    ports:
+      - "${ACTIVEMQ_UI_PORT:-8161}:8161"
+      - "${ACTIVEMQ_PORT:-61616}:61616"
+    volumes:
+      - ./conf/activemq.xml:/opt/activemq/conf/activemq.xml
